@@ -183,6 +183,9 @@ class Heroku(HerokuCore):
     def apps(self):
         return self._get_resources(('apps'), App)
 
+    def app(self, app_name):
+        return self._get_resource(('apps', app_name), App)
+
     @property
     def keys(self):
         return self._get_resources(('user', 'keys'), Key, map=SSHKeyListResource)
